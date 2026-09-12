@@ -1,0 +1,42 @@
+{
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "python.languageServer": "None",
+  "python.testing.pytestEnabled": true,
+  "python.testing.unittestEnabled": false,
+  "python.testing.cwd": "${workspaceFolder}",
+  "python.testing.pytestArgs": [
+    "tests",
+    "--cov-reset",
+    "--cov=crypto_trading_framework",
+    "--cov-fail-under=0"
+  ],
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "ruff.importStrategy": "fromEnvironment",
+  "ruff.nativeServer": "on",
+  "ty.importStrategy": "fromEnvironment",
+  "ty.interpreter": "${workspaceFolder}/.venv",
+  "ty.diagnosticMode": "workspace",
+  "ty.disableLanguageServices": false,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
+    }
+  },
+  "search.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/.ruff_cache": true,
+    "**/dist": true,
+    "**/htmlcov": true
+  }
+}
