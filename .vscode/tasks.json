@@ -1,0 +1,84 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "uv: sync",
+      "type": "process",
+      "command": "uv",
+      "args": ["sync", "--locked"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: lint",
+      "type": "process",
+      "command": "uv",
+      "args": ["run", "--locked", "ruff", "check", "."],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: check formatting",
+      "type": "process",
+      "command": "uv",
+      "args": ["run", "--locked", "ruff", "format", "--check", "."],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: format",
+      "type": "process",
+      "command": "uv",
+      "args": ["run", "--locked", "ruff", "format", "."],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: type check",
+      "type": "process",
+      "command": "uv",
+      "args": ["run", "--locked", "ty", "check"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: test",
+      "type": "process",
+      "command": "uv",
+      "args": ["run", "--locked", "pytest"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: build",
+      "type": "process",
+      "command": "uv",
+      "args": ["build"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: audit",
+      "type": "process",
+      "command": "uv",
+      "args": ["audit", "--locked", "--preview-features", "audit-command"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "uv: check all",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "uv: sync",
+        "uv: lint",
+        "uv: check formatting",
+        "uv: type check",
+        "uv: test",
+        "uv: build"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": []
+    }
+  ]
+}
